@@ -80,8 +80,13 @@ WSGI_APPLICATION = 'shopping.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'shopping_db_yizw',
+        'USER': 'amit',
+        'PASSWORD': 'B940fwXh4kGX980GbDvt4425vzPvtYsH',
+        'HOST': 'dpg-cf7bcbsgqg47vk2f7u90-a.frankfurt-postgres.render.com',
+        'PORT': '5432',
+
     }
 }
 
@@ -128,11 +133,11 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 MEDIA_URL = '/images/'
- 
+
 STATICFILES_DIRS = [
-   BASE_DIR / 'static',
+    BASE_DIR / 'static',
 ]
- 
+
 MEDIA_ROOT = BASE_DIR / 'static/images'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 

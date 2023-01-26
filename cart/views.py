@@ -30,8 +30,7 @@ def cart(request):
 def cartitem(request, pk):
     if request.method == 'DELETE':
         product = Cart.objects.get(id=pk)
-        product.archive = True
-        product.save()
+        product.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
 
     if request.method == 'GET':
