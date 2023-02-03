@@ -10,3 +10,7 @@ class Product(models.Model):
     updated =  models.DateField(auto_now=True)
     archive = models.BooleanField(default=False)
     image = models.ImageField(null=True , blank=True, default='/placeholder.png')
+
+class CartItem(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.DecimalField(decimal_places=2,max_digits=10)
