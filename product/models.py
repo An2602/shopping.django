@@ -12,7 +12,13 @@ class Product(models.Model):
     archive = models.BooleanField(default=False)
     image = models.ImageField(null=True , blank=True, default='/placeholder.png')
 
+    def __str__(self):
+        return self.name
+
 class CartItem(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, unique=True)
     quantity = models.DecimalField(decimal_places=2,max_digits=10)
+
+    def __str__(self):
+        return f"{self.product.name} {self.quantity}"
