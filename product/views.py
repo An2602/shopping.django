@@ -56,12 +56,12 @@ def cart_list(request):
     """
     List all products, or create a new product.
     """
-    if request.method == 'GET': #list products
+    if request.method == 'GET': 
         cart = CartItem.objects.all()
         serializer = CartSerializer(cart, many=True)
         return Response(serializer.data)
 
-    elif request.method == 'POST': #create new product
+    elif request.method == 'POST': 
         serializer = CartSerializertwo(data=request.data)
         if serializer.is_valid():
             serializer.save()
